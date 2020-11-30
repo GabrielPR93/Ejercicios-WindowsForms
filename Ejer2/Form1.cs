@@ -23,31 +23,15 @@ namespace Ejer2
             button1.Tag = Color.Red;
             button2.Tag = Color.Blue;
             Imagen.Tag = Color.ForestGreen;
+            
 
         }
         private void Button1_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Seguro que desea salir?", "Mi Aplicación",
-             MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
-             == DialogResult.OK)
-            {
                 this.Close();
-            }
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode==Keys.Escape)
-            {
-                if (MessageBox.Show("¿Seguro que desea salir?", "Mi Aplicación",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
-                == DialogResult.OK)
-                {
-                    this.Close();
-                }  
-            }
-        }
-
+   
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -56,6 +40,7 @@ namespace Ejer2
                 int color1 = Convert.ToInt32(textBox1.Text);
                 int color2 = Convert.ToInt32(textBox2.Text);
                 int color3 = Convert.ToInt32(textBox3.Text);
+                error.Text = "";
 
                 if (color1<0 || color1>255)
                 {
@@ -71,13 +56,18 @@ namespace Ejer2
 
                 BackColor = Color.FromArgb(color1, color2, color3);
                 form1.AcceptButton = button2;
-
+                
             }
             catch (FormatException)
             {
-                Console.WriteLine("Error de formato");
-               
-            } 
+                error.Text = "Error de formato";
+                  
+            }
+            catch (OverflowException)
+            {
+                error.Text = "Numero demasiado grande";
+                
+            }
            
         }
 
@@ -87,15 +77,17 @@ namespace Ejer2
             {
                 string direccion = ruta.Text;
                 labelImagen.BackgroundImage = new Bitmap(direccion);
+                error.Text = "";
             }
             catch (FileNotFoundException)
             {
-                Console.WriteLine("Imagen no encontrada");
+                error.Text = "Imagen no encontrada";
+              
                
             }
             catch (ArgumentException)
             {
-                Console.WriteLine("Imagen no encontrada");
+                error.Text = "Ruta no valida";
             }
 
 
@@ -118,6 +110,26 @@ namespace Ejer2
         private void textBox1_Enter(object sender, EventArgs e)
         {
             button2.PerformClick();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea salir?", "Ejercicio 2",
+               MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+               == DialogResult.Cancel)
+            {
+                e.Cancel=true;
+            }
+        }
+
+        private void ruta_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
