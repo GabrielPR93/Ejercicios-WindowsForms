@@ -125,6 +125,7 @@ namespace Ejer2
             {
                 e.Cancel=true;
             }
+
         }
 
         private void ruta_TextChanged(object sender, EventArgs e)
