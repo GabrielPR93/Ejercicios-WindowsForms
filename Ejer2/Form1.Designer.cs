@@ -70,6 +70,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 4;
+            this.textBox2.Enter += new System.EventHandler(this.textBox2_Enter);
             // 
             // textBox3
             // 
@@ -77,6 +78,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 6;
+            this.textBox3.Enter += new System.EventHandler(this.textBox3_Enter);
             // 
             // button2
             // 
@@ -96,7 +98,6 @@
             this.ruta.Name = "ruta";
             this.ruta.Size = new System.Drawing.Size(100, 20);
             this.ruta.TabIndex = 9;
-            this.ruta.TextChanged += new System.EventHandler(this.ruta_TextChanged);
             this.ruta.Enter += new System.EventHandler(this.ruta_Enter);
             // 
             // labelImagen

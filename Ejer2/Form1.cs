@@ -36,7 +36,7 @@ namespace Ejer2
         {
             try
             {
-                Form form1 = new Form();
+               
                 int color1 = Convert.ToInt32(textBox1.Text);
                 int color2 = Convert.ToInt32(textBox2.Text);
                 int color3 = Convert.ToInt32(textBox3.Text);
@@ -55,7 +55,6 @@ namespace Ejer2
                 }
 
                 BackColor = Color.FromArgb(color1, color2, color3);
-                form1.AcceptButton = button2;
                 
             }
             catch (FormatException)
@@ -90,8 +89,6 @@ namespace Ejer2
                 error.Text = "Ruta no valida";
             }
 
-
-
         }
         private void CambiarColorBotones(object sender,System.EventArgs e)
         {
@@ -102,13 +99,10 @@ namespace Ejer2
             ((Button)sender).BackColor = DefaultBackColor;
         }
 
-        private void ruta_Enter(object sender, EventArgs e)
-        {
-            Imagen.PerformClick();
-        }
 
         private void textBox1_Enter(object sender, EventArgs e)
         {
+            AcceptButton = button2;
             button2.PerformClick();
         }
 
@@ -128,9 +122,19 @@ namespace Ejer2
 
         }
 
-        private void ruta_TextChanged(object sender, EventArgs e)
+        private void ruta_Enter(object sender, EventArgs e)
         {
+            AcceptButton = Imagen;
+        }
 
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            AcceptButton = button2;
+        }
+
+        private void textBox3_Enter(object sender, EventArgs e)
+        {
+            AcceptButton = button2;
         }
     }
 }
