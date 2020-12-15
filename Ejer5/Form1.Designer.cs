@@ -40,6 +40,7 @@
             this.btQuitar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // listBox1
@@ -49,7 +50,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listBox1.Size = new System.Drawing.Size(120, 95);
-            this.listBox1.TabIndex = 0;
+            this.listBox1.TabIndex = 5;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // listBox2
@@ -58,8 +59,7 @@
             this.listBox2.Location = new System.Drawing.Point(458, 47);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(120, 95);
-            this.listBox2.TabIndex = 1;
-            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
+            this.listBox2.TabIndex = 6;
             // 
             // labelCantidad
             // 
@@ -85,7 +85,7 @@
             this.TrasparAl2.Location = new System.Drawing.Point(78, 161);
             this.TrasparAl2.Name = "TrasparAl2";
             this.TrasparAl2.Size = new System.Drawing.Size(120, 23);
-            this.TrasparAl2.TabIndex = 4;
+            this.TrasparAl2.TabIndex = 3;
             this.TrasparAl2.Text = "Traspasar -->";
             this.TrasparAl2.UseVisualStyleBackColor = true;
             this.TrasparAl2.Click += new System.EventHandler(this.TrasparAl2_Click);
@@ -96,7 +96,7 @@
             this.TraspasarAl1.Location = new System.Drawing.Point(458, 161);
             this.TraspasarAl1.Name = "TraspasarAl1";
             this.TraspasarAl1.Size = new System.Drawing.Size(120, 23);
-            this.TraspasarAl1.TabIndex = 5;
+            this.TraspasarAl1.TabIndex = 4;
             this.TraspasarAl1.Text = "<-- Traspasar";
             this.TraspasarAl1.UseVisualStyleBackColor = true;
             this.TraspasarAl1.Click += new System.EventHandler(this.TraspasarAl1_Click);
@@ -107,7 +107,7 @@
             this.btAñadir.Location = new System.Drawing.Point(289, 74);
             this.btAñadir.Name = "btAñadir";
             this.btAñadir.Size = new System.Drawing.Size(75, 23);
-            this.btAñadir.TabIndex = 6;
+            this.btAñadir.TabIndex = 1;
             this.btAñadir.Text = "Añadir";
             this.btAñadir.UseVisualStyleBackColor = true;
             this.btAñadir.Click += new System.EventHandler(this.btAñadir_Click);
@@ -118,7 +118,7 @@
             this.btQuitar.Location = new System.Drawing.Point(289, 119);
             this.btQuitar.Name = "btQuitar";
             this.btQuitar.Size = new System.Drawing.Size(75, 23);
-            this.btQuitar.TabIndex = 7;
+            this.btQuitar.TabIndex = 2;
             this.btQuitar.Text = "Quitar";
             this.btQuitar.UseVisualStyleBackColor = true;
             this.btQuitar.Click += new System.EventHandler(this.btQuitar_Click);
@@ -128,11 +128,13 @@
             this.textBox1.Location = new System.Drawing.Point(267, 164);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(113, 20);
-            this.textBox1.TabIndex = 8;
+            this.textBox1.TabIndex = 0;
             // 
-            // toolTip1
+            // timer1
             // 
-            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 200;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -170,6 +172,7 @@
         private System.Windows.Forms.Button btQuitar;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
