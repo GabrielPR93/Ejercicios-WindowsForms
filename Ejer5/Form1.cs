@@ -14,7 +14,9 @@ namespace Ejer5
     {
         ToolTip tooltip1 = new ToolTip();
         string titulo = "Ejercicio5";
-        int cont=9;
+        int cont = 9;
+        bool flag = true;
+        bool entrada = true;
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace Ejer5
             if (listBox1.SelectedIndex != -1)
             {
 
-                for (int i = listBox1.SelectedIndices.Count - 1; i >= 0; i--)
+                for (int i = 0; i <= listBox1.SelectedIndices.Count - 1; i++)
                 {
                     indices += listBox1.SelectedIndices[i].ToString() + ",";
 
@@ -40,8 +42,6 @@ namespace Ejer5
                 labelIndices.Text = "Indices";
 
             }
-
-
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -57,7 +57,7 @@ namespace Ejer5
         private void Form1_Load(object sender, EventArgs e)
         {
 
-           
+
             tooltip1.AutoPopDelay = 5000;
             tooltip1.InitialDelay = 1000;
             tooltip1.ReshowDelay = 500;
@@ -139,15 +139,37 @@ namespace Ejer5
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-           
-            this.Text = "" + titulo[cont];
-            if (cont==0)
+
+            if (cont < 0)
             {
                 cont = 9;
+                this.Text = "";
             }
             else
             {
+                this.Text = this.Text.Insert(0, titulo[cont].ToString());
                 cont--;
+            }
+
+
+            if (entrada)// entra una vez si y otra no 
+            {
+                entrada = false;
+
+                if (flag)
+                {
+                    this.Icon = Icon.ExtractAssociatedIcon("mario.ico");
+                    flag = false;
+                }
+                else
+                {
+                    this.Icon = Icon.ExtractAssociatedIcon("dragon.ico");
+                    flag = true;
+                }
+            }
+            else
+            {
+                entrada = true;
             }
         }
     }
